@@ -1,0 +1,44 @@
+/* Universal Styles */
+.mobile {
+  display: none;
+}
+
+html {
+  font-size: 16px;
+}
+
+div {
+  border: 1px red dotted;
+}
+
+h1, h2, h3, h4, h5, h6, p, li {
+  border: 1px lime dashed;
+}
+
+/* Header */
+
+header {
+  width: 100%
+  height: 4rem;
+  display: flex;
+  position: fixed;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  justify-content: space-between;
+  border-bottom: 1px pink solid;
+}
+
+.header ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header ul li {
+  margin: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+}
