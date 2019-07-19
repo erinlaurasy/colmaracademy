@@ -8,18 +8,46 @@ html {
 }
 
 div {
-  border: 1px red dotted;
+  font-family: inherit;
 }
 
-h1, h2, h3, h4, h5, h6, p, li {
-  border: 1px lime dashed;
+/* Colors and Fonts*/
+
+p, li, span, a {
+  font-family: "Montserrat", sans-serif;
 }
 
-@media only screen and (max-width: 768px) {
-  .desktop {
-    display: none;
-  }
+a {
+  color: #AC3B61;
+}
 
+.logo span, h1, h2 {
+  font-family: "Merriweather Sans", sans-serif;
+  font-weight: extra-bold;
+  color: #302420;
+}
+
+h3, h4 {
+  font-family: "Merriweather Sans", sans-serif;
+  font-weight: bold;
+  color: #302420;
+}
+
+.dark {
+  background-color: #AC3B61;
+  color: #F9F3F2;
+}
+
+.light {
+  background-color: #EDC7B7;
+}
+
+.back {
+  background-color: #EEE2DC;
+}
+
+.brown {
+  color: #742B12;
 }
 
 /* Header */
@@ -36,6 +64,7 @@ h1, h2, h3, h4, h5, h6, p, li {
   background-color: white;
   align-items: center;
   top: 0;
+  background-color: #F9F3F2;
 }
 
 .header .logo {
@@ -58,15 +87,11 @@ h1, h2, h3, h4, h5, h6, p, li {
   display: flex;
   justify-content: space-between;
   list-style: none;
-  margin-right: 1.5rem;
+  margin-right: 3rem;
 }
 
 .header ul li {
   margin: 0.5rem;
-}
-
-@media only screen and (max-width: 480px) {
-  .desktop
 }
 
 /* Left-Right columns
@@ -93,24 +118,29 @@ h1, h2, h3, h4, h5, h6, p, li {
 
 /* Banner */
 
-.banner {
-  background-color: darkgray;
+#banner {
   margin-top: 2rem;
 }
 
-.banner .rightcolumn {
+#banner .rightcolumn {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.banner h2, .banner h4, .banner .button {
+#banner h2, #banner h4, #banner .button {
   width: 70%;
 }
 
 .button {
   text-align: center;
   padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  transition: 0.3s ease-out;
+}
+
+.button:hover {
+  background-color: #123C69;
 }
 
 /* Information & Thesis
@@ -121,10 +151,14 @@ Since these two sections look similar we'll use the same code here */
   padding: 1rem 0 1rem 1rem;
 }
 
-.infoblock img {
+.infoblock .desktop { /* This is for the images that need to disappear on mobile screens */
   width: 35%;
   height: auto;
   margin-right: 1.5rem;
+}
+
+.infoblock .mobile {
+  display: none;
 }
 
 .infoblock .text {
@@ -147,7 +181,7 @@ Since these two sections look similar we'll use the same code here */
   margin-bottom: 2rem;
   margin-right: 2rem;
   padding-bottom: 1.5rem;
-  width: 20rem;
+  width: 30%;
   text-align: left;
 }
 
@@ -157,10 +191,15 @@ Since these two sections look similar we'll use the same code here */
   overflow: hidden;
 }
 
+.course h4, .course p {
+  margin-left: 1rem;
+}
+
 /* Thesis */
 
 .thesis {
   text-align: center;
+  padding-bottom: 2rem;
 }
 
 .thesis h2 {
@@ -172,6 +211,171 @@ Since these two sections look similar we'll use the same code here */
   text-align: left;
 }
 
+.thesis .infoblock img {
+  width: 35%;
+  height: auto;
+  margin-right: 1.5rem;
+}
+
 .thesis video {
   max-width: 100%;
+}
+
+.thesis .infoblock {
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-left: 1.5rem;
+  border-top: 1px #BAB2B5 solid;
+}
+
+/* Responsive Media Query */
+
+@media only screen and (max-width: 762px) {
+  .desktop {
+    display: none;
+  }
+
+  /* Header */
+  .header {
+    padding: 0;
+  }
+
+  .header .desktop {
+    display: none;
+  }
+
+  .header .mobile {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  /* Banner */
+
+  #banner {
+  display: block;
+  padding: 0;
+  }
+
+  #banner .leftcolumn {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  #banner .rightcolumn {
+    width: auto;
+    padding: 2rem 1rem;
+  }
+
+  #banner .rightcolumn h2 {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 2rem;
+  }
+
+  #banner .rightcolumn h4 {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  #banner .rightcolumn .button {
+    width: 100%;
+  }
+
+  /* Information */
+
+  .information {
+    padding: 0;
+  }
+
+  .information .leftcolumn {
+    display: none;
+  }
+
+  .information .rightcolumn {
+    width: auto;
+    padding: 0;
+  }
+
+  .infoblock {
+    display: block;
+    padding-right: 1rem;
+    padding-bottom: 4rem;
+    background-color: #EEE2DC;
+  }
+
+  .infoblock .text {
+    padding-left: 1rem;
+  }
+
+  .infoblock .mobile {
+    display: block;
+  }
+
+  /* Courses */
+  .courses {
+    padding: 2rem 1rem;
+  }
+
+  .courses .container {
+    padding-bottom: 0;
+    display: block;
+  }
+
+  .courses p {
+    display: none;
+  }
+
+  .course {
+    width: 95%;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    padding: 1rem 0 1.5rem 1rem;
+  }
+
+  .course h4 {
+    margin: 0 0;
+  }
+
+  /* Thesis */
+
+  .thesis {
+    padding-bottom: 1.5rem;
+  }
+
+  .thesis .leftcolumn {
+    width: 100%;
+  }
+
+  .thesis h4, .thesis p {
+    display: none;
+  }
+
+  .thesis .leftright {
+    padding: 0;
+  }
+
+  .thesis video {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  /* Footer */
+
+  footer {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .terms {
+    display: none;
+  }
 }
